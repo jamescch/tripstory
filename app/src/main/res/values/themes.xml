@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- We cannot change original toolbar style with the theme xxx.ActionBar -->
+    <!-- So here we use NoActionBar and inflate our own style toolbar style -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:actionBarWidgetTheme">@style/AppTheme.ToolbarStyle</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="AppTheme.ToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:minHeight">?actionBarSize</item>
+        <item name="android:background">@color/primary</item>
+        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="AppTheme">
+        <item name="android:actionBarWidgetTheme">@style/Theme.Transparent.ToolbarStyle</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/transparent_white</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Transparent.ToolbarStyle" parent="AppTheme.ToolbarStyle">
+        <item name="android:background">@color/transparent_white</item>
+    </style>
+
+</resources>
