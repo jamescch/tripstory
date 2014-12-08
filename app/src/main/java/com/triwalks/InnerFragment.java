@@ -7,18 +7,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class InnerFragment extends Fragment{
-    private View v;
-    private int layout;
+    protected View v;
+    protected int layout;
 
     public InnerFragment(){}
 
-    protected void onCreate(){}
-
-    protected void setFragLayout(int layout){
+    public void setFragLayout(int layout){
         this.layout = layout;
     }
 
-    protected View getFragView(){
+    public View getFragView(){
         return this.v;
     }
 
@@ -27,7 +25,6 @@ public class InnerFragment extends Fragment{
         View rootView = inflater.inflate(this.layout, container, false);
         // the order of tow following lines of code must not change!
         this.v = rootView;
-        onCreate();
         return rootView;
     }
 }

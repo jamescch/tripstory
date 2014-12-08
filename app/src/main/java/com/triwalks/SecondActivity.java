@@ -3,7 +3,9 @@ package com.triwalks;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 
@@ -29,6 +31,7 @@ public class SecondActivity extends NaviActivity {
 
         // Inflate user main page fragment
         Frag_user_info fragment = new Frag_user_info();
+
         // Must set
         fragment.setFragLayout(R.layout.frag_layout_user_info);
         displayFragment(fragment);
@@ -43,13 +46,13 @@ public class SecondActivity extends NaviActivity {
 
     public static class Frag_user_info extends InnerFragment {
         @Override
-        public void onCreate(){
-            View v = getFragView();
-            v.findViewById(R.id.pink_icon).setOnClickListener(new View.OnClickListener() {
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+            super.onCreateView(inflater, container, savedInstanceState);
+            // initialize
+            getFragView().findViewById(R.id.pink_icon).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     getActivity().finish();
-
                     /* if want to create new activity
                     Intent intent = new Intent();
                     intent.setClass(getActivity(), MainActivity.class);
@@ -57,6 +60,7 @@ public class SecondActivity extends NaviActivity {
                     getActivity().finish();*/
                 }
             });
+            return getFragView();
         }
     }
 }
