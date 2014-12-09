@@ -47,6 +47,14 @@ public class CustomMapFragment extends InnerFragment {
         return getFragView();
     }
 
+    public MapView getMapView(){
+        return this.mMapView;
+    }
+
+    public GoogleMap getMap(){
+        return this.mMap;
+    }
+
     @Override
     public void onSaveInstanceState(Bundle outState){
         //This MUST be done before saving any of your own or your base class's variables
