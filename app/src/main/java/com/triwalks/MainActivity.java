@@ -8,6 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+
 public class MainActivity extends NaviActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -41,18 +45,10 @@ public class MainActivity extends NaviActivity {
                 .show();*/
     }
 
-    public static class Frag_user_main extends InnerFragment {
+    public static class Frag_user_main extends CustomMapFragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             super.onCreateView(inflater, container, savedInstanceState);
-            getFragView().findViewById(R.id.test).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent();
-                    intent.setClass(getActivity(), SecondActivity.class);
-                    startActivity(intent);
-                }
-            });
             return getFragView();
         }
     }

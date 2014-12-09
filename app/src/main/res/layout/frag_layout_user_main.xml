@@ -7,10 +7,16 @@
     android:layout_height="match_parent"
     android:id="@+id/mainFrame">
 
-    <include android:id="@+id/main2" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/full_card_view" />
-    <include android:id="@+id/main3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/main2" layout="@layout/full_card_view" />
-    <include android:id="@+id/main4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/main3" layout="@layout/full_card_view" />
+    <!--<include android:id="@+id/main2" android:layout_width="match_parent" android:layout_height="wrap_content" layout="@layout/full_card_view" />-->
+    <!--<include android:id="@+id/main3" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/main2" layout="@layout/full_card_view" />-->
+    <!--<include android:id="@+id/main4" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/main3" layout="@layout/full_card_view" />-->
     <!-- CONTENT HERE -->
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.MapFragment"/>
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         fab:fab_addButtonColorNormal="@color/white"
@@ -31,6 +37,7 @@
             android:layout_height="wrap_content"
             fab:fab_colorNormal="@color/white"
             fab:fab_colorPressed="@color/white_pressed"/>
+
     </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
     <!--<com.getbase.floatingactionbutton.FloatingActionButton

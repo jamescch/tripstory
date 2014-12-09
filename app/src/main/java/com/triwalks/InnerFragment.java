@@ -8,7 +8,8 @@ import android.view.ViewGroup;
 
 public class InnerFragment extends Fragment{
     protected View v;
-    protected int layout;
+    // prevent screen rotate inflate error
+    private static int layout;
 
     public InnerFragment(){}
 
@@ -22,9 +23,8 @@ public class InnerFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(this.layout, container, false);
+        this.v = inflater.inflate(this.layout, container, false);
         // the order of tow following lines of code must not change!
-        this.v = rootView;
-        return rootView;
+        return v;
     }
 }
