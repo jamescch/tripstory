@@ -25,7 +25,10 @@ class BitmapWorkerTask extends AsyncTask<String, Void, Bitmap> {
     @Override
     protected Bitmap doInBackground(String... params) {
         path = params[0];
-        return decodeSampledBitmapFromPath(path, 100, 100);
+        Bitmap bitmap = decodeSampledBitmapFromPath(path, 100, 100);
+
+        SecondActivity.addBitmapToMemoryCache(path, bitmap);
+        return bitmap;
     }
 
     // Once complete, see if ImageView is still around and set bitmap.

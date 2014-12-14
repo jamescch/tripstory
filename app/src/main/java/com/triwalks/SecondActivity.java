@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.LruCache;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,8 @@ public class SecondActivity extends NaviActivity {
     static GridView gridView;
 
     ArrayList<String> imageUrls;
+    private static LruCache<String, Bitmap> mMemoryCache;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +91,23 @@ public class SecondActivity extends NaviActivity {
         }
         imagecursor.close();
 
+        /** Caching */
+        // Get max available VM memory, exceeding this amount will throw an
+        // OutOfMemory exception. Stored in kilobytes as LruCache takes an
+        // int in its constructor.
+        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
+
+        // Use 1/8th of the available memory for this memory cache.
+        final int cacheSize = maxMemory / 8;
+
+        mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
+            @Override
+            protected int sizeOf(String key, Bitmap bitmap) {
+                // The cache size will be measured in kilobytes rather than
+                // number of items.
+                return bitmap.getByteCount() / 1024;
+            }
+        };
 
 
     }
@@ -163,16 +183,47 @@ public class SecondActivity extends NaviActivity {
 //        BitmapWorkerTask task = new BitmapWorkerTask(imageView);
 //        task.execute(path);
 //    }
+    //caching
+    public static void addBitmapToMemoryCache(String key, Bitmap bitmap) {
+        if (getBitmapFromMemCache(key) == null) {
+            mMemoryCache.put(key, bitmap);
+        }
+    }
+    //caching
+    public static Bitmap getBitmapFromMemCache(String key) {
+        return mMemoryCache.get(key);
+    }
 
     public void loadBitmap(String path, ImageView imageView) {
-        Bitmap mPlaceHolderBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.swimming);//Image to show while loading
-        if (cancelPotentialWork(path, imageView)) {
-            final BitmapWorkerTask task = new BitmapWorkerTask(imageView);
-            final AsyncDrawable asyncDrawable =
-                    new AsyncDrawable(getResources(), mPlaceHolderBitmap, task);
-            imageView.setImageDrawable(asyncDrawable);
-            task.execute(path);
+        //non caching
+//        Bitmap mPlaceHolderBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.swimming);//Image to show while loading
+//        if (cancelPotentialWork(path, imageView)) {
+//            final BitmapWorkerTask task = new BitmapWorkerTask(imageView);
+//            final AsyncDrawable asyncDrawable =
+//                    new AsyncDrawable(getResources(), mPlaceHolderBitmap, task);
+//            imageView.setImageDrawable(asyncDrawable);
+//            task.execute(path);
+//        }
+
+        //caching
+        final String imageKey = path;
+
+        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
+        if (bitmap != null) {
+            imageView.setImageBitmap(bitmap);
+        } else {
+            if(cancelPotentialWork(path, imageView)) { // Without this, it works slower
+                BitmapWorkerTask task = new BitmapWorkerTask(imageView);
+                Bitmap mPlaceHolderBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.swimming);
+                final AsyncDrawable asyncDrawable =
+                        new AsyncDrawable(getResources(), mPlaceHolderBitmap, task);
+                imageView.setImageDrawable(asyncDrawable);
+                //            imageView.setImageResource(R.drawable.swimming);
+
+                task.execute(path);
+            }
         }
+
     }
 
     public static boolean cancelPotentialWork(String data, ImageView imageView) {
