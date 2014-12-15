@@ -1,20 +1,15 @@
 package com.triwalks;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.util.LruCache;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,10 +20,9 @@ import android.widget.CompoundButton;
 import android.widget.GridView;
 import android.widget.ImageView;
 
-import com.afollestad.materialdialogs.MaterialDialog;
-
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+
+import lib.image.ImageLoader;
 
 
 public class SecondActivity extends NaviActivity {
@@ -37,7 +31,7 @@ public class SecondActivity extends NaviActivity {
     static GridView gridView;
 
     ArrayList<String> imageUrls;
-    private static LruCache<String, Bitmap> mMemoryCache;
+    private ImageLoader mImageLoader;
 
 
     @Override
@@ -91,23 +85,7 @@ public class SecondActivity extends NaviActivity {
         }
         imagecursor.close();
 
-        /** Caching */
-        // Get max available VM memory, exceeding this amount will throw an
-        // OutOfMemory exception. Stored in kilobytes as LruCache takes an
-        // int in its constructor.
-        final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-
-        // Use 1/8th of the available memory for this memory cache.
-        final int cacheSize = maxMemory / 8;
-
-        mMemoryCache = new LruCache<String, Bitmap>(cacheSize) {
-            @Override
-            protected int sizeOf(String key, Bitmap bitmap) {
-                // The cache size will be measured in kilobytes rather than
-                // number of items.
-                return bitmap.getByteCount() / 1024;
-            }
-        };
+        mImageLoader = new ImageLoader(getApplicationContext());
 
 
     }
@@ -138,136 +116,6 @@ public class SecondActivity extends NaviActivity {
         canvas.drawBitmap(bmp1, new Matrix(), null);
         canvas.drawBitmap(bmp2, 15, 15, null);//15 is the width of the frame
         return bmOverlay;
-    }
-
-//    public Bitmap decodeSampledBitmapFromPath(String path, int reqWidth, int reqHeight) {
-//
-//        // First decode with inJustDecodeBounds=true to check dimensions
-//        final BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inJustDecodeBounds = true;
-//        // Store dimensions info into options object
-//        BitmapFactory.decodeFile(path, options);
-//
-//        // Calculate inSampleSize
-//        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-//
-//        // Decode bitmap with inSampleSize set
-//        options.inJustDecodeBounds = false;
-//        return BitmapFactory.decodeFile(path, options);
-//    }
-//
-//    public int calculateInSampleSize(
-//            BitmapFactory.Options options, int reqWidth, int reqHeight) {
-//        // Raw height and width of image
-//        final int height = options.outHeight;
-//        final int width = options.outWidth;
-//        int inSampleSize = 1;
-//
-//        if (height > reqHeight || width > reqWidth) {
-//
-//            final int halfHeight = height / 2;
-//            final int halfWidth = width / 2;
-//
-//            // Calculate the largest inSampleSize value that is a power of 2 and keeps both
-//            // height and width larger than the requested height and width.
-//            while ((halfHeight / inSampleSize) > reqHeight
-//                    && (halfWidth / inSampleSize) > reqWidth) {
-//                inSampleSize *= 2;
-//            }
-//        }
-//
-//        return inSampleSize;
-//    }
-
-//    public void loadBitmap(String path, ImageView imageView) {
-//        BitmapWorkerTask task = new BitmapWorkerTask(imageView);
-//        task.execute(path);
-//    }
-    //caching
-    public static void addBitmapToMemoryCache(String key, Bitmap bitmap) {
-        if (getBitmapFromMemCache(key) == null) {
-            mMemoryCache.put(key, bitmap);
-        }
-    }
-    //caching
-    public static Bitmap getBitmapFromMemCache(String key) {
-        return mMemoryCache.get(key);
-    }
-
-    public void loadBitmap(String path, ImageView imageView) {
-        //non caching
-//        Bitmap mPlaceHolderBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.swimming);//Image to show while loading
-//        if (cancelPotentialWork(path, imageView)) {
-//            final BitmapWorkerTask task = new BitmapWorkerTask(imageView);
-//            final AsyncDrawable asyncDrawable =
-//                    new AsyncDrawable(getResources(), mPlaceHolderBitmap, task);
-//            imageView.setImageDrawable(asyncDrawable);
-//            task.execute(path);
-//        }
-
-        //caching
-        final String imageKey = path;
-
-        final Bitmap bitmap = getBitmapFromMemCache(imageKey);
-        if (bitmap != null) {
-            imageView.setImageBitmap(bitmap);
-        } else {
-            if(cancelPotentialWork(path, imageView)) { // Without this, it works slower
-                BitmapWorkerTask task = new BitmapWorkerTask(imageView);
-                Bitmap mPlaceHolderBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.swimming);
-                final AsyncDrawable asyncDrawable =
-                        new AsyncDrawable(getResources(), mPlaceHolderBitmap, task);
-                imageView.setImageDrawable(asyncDrawable);
-                //            imageView.setImageResource(R.drawable.swimming);
-
-                task.execute(path);
-            }
-        }
-
-    }
-
-    public static boolean cancelPotentialWork(String data, ImageView imageView) {
-        final BitmapWorkerTask bitmapWorkerTask = getBitmapWorkerTask(imageView);
-
-        if (bitmapWorkerTask != null) {
-            final String bitmapData = bitmapWorkerTask.path;
-            // If bitmapData is not yet set or it differs from the new data
-            if (bitmapData == null || bitmapData.equals(data) ) {
-                // Cancel previous task
-                bitmapWorkerTask.cancel(true);
-            } else {
-                // The same work is already in progress
-                return false;
-            }
-        }
-        // No task associated with the ImageView, or an existing task was cancelled
-        return true;
-    }
-
-    public static BitmapWorkerTask getBitmapWorkerTask(ImageView imageView) {
-        if (imageView != null) {
-            final Drawable drawable = imageView.getDrawable();
-            if (drawable instanceof AsyncDrawable) {
-                final AsyncDrawable asyncDrawable = (AsyncDrawable) drawable;
-                return asyncDrawable.getBitmapWorkerTask();
-            }
-        }
-        return null;
-    }
-
-    static class AsyncDrawable extends BitmapDrawable {
-        private final WeakReference<BitmapWorkerTask> bitmapWorkerTaskReference;
-
-        public AsyncDrawable(Resources res, Bitmap bitmap,
-                             BitmapWorkerTask bitmapWorkerTask) {
-            super(res, bitmap);
-            bitmapWorkerTaskReference =
-                    new WeakReference<BitmapWorkerTask>(bitmapWorkerTask);
-        }
-
-        public BitmapWorkerTask getBitmapWorkerTask() {
-            return bitmapWorkerTaskReference.get();
-        }
     }
 
     public class ImageAdapter extends BaseAdapter {
@@ -325,7 +173,7 @@ public class SecondActivity extends NaviActivity {
             final ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
 
 //            imageView.setImageBitmap(SecondActivity.this.decodeSampledBitmapFromPath(imageUrls.get(position), 100, 100));
-            SecondActivity.this.loadBitmap(imageUrls.get(position), imageView);
+            mImageLoader.loadBitmap(imageUrls.get(position), imageView);
 
 //            imageLoader.displayImage("file://"+imageUrls.get(position), imageView, options, new SimpleImageLoadingListener() {
 //                @Override
