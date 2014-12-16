@@ -115,8 +115,8 @@ public class ImageLoader {
         }
         return null;
     }
-
-    public Bitmap decodeSampledBitmapFromPath(String path, int reqWidth, int reqHeight) {
+    // return a bitmap whose size is near requested size but not smaller than
+    public static Bitmap decodeSampledBitmapFromPath(String path, int reqWidth, int reqHeight) {
 
         // First decode with inJustDecodeBounds=true to check dimensions
         final BitmapFactory.Options options = new BitmapFactory.Options();
@@ -129,10 +129,23 @@ public class ImageLoader {
 
         // Decode bitmap with inSampleSize set
         options.inJustDecodeBounds = false;
-        return BitmapFactory.decodeFile(path, options);
+
+        Bitmap bitmap = BitmapFactory.decodeFile(path, options);
+        Bitmap scaledBitmap;
+//        System.out.println(bitmap.getWidth()+" "+bitmap.getHeight());
+        // We crop the longer side of the image to it's center
+        if(bitmap.getWidth() > bitmap.getHeight()){
+            scaledBitmap = Bitmap.createBitmap(
+                    bitmap, (bitmap.getWidth()-bitmap.getHeight())/2, 0, bitmap.getHeight(), bitmap.getHeight());
+        }else{
+            scaledBitmap = Bitmap.createBitmap(
+                    bitmap, 0, (bitmap.getHeight()-bitmap.getWidth())/2, bitmap.getWidth(), bitmap.getWidth());
+        }
+//        scaledBitmap = Bitmap.createBitmap(bitmap, 0, 0, 100, 80);
+        return scaledBitmap;
     }
 
-    public int calculateInSampleSize(
+    public static int calculateInSampleSize(
             BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
         final int height = options.outHeight;

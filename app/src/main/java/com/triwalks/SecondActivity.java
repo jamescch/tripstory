@@ -1,6 +1,8 @@
 package com.triwalks;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -15,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.GridView;
@@ -28,10 +31,12 @@ import lib.image.ImageLoader;
 public class SecondActivity extends NaviActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
-    static GridView gridView;
+    private static GridView gridView;
+    private static Button btn_select_photos;
 
     ArrayList<String> imageUrls;
     private ImageLoader mImageLoader;
+    private ImageAdapter mImageAdapter;
 
 
     @Override
@@ -86,14 +91,25 @@ public class SecondActivity extends NaviActivity {
         imagecursor.close();
 
         mImageLoader = new ImageLoader(getApplicationContext());
-
+        mImageAdapter = new ImageAdapter(this, imageUrls);
 
     }
 
     protected void onResume(){
         super.onResume();
         //gridView is null until onCreate finished
-        gridView.setAdapter(new ImageAdapter(this, imageUrls));
+        gridView.setAdapter(mImageAdapter);
+        btn_select_photos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Send data back to parent activity
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("imageUrls", mImageAdapter.getCheckedItems());
+
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
+            }
+        });
     }
 
     public float[] getGeotag(String path) {
@@ -172,7 +188,7 @@ public class SecondActivity extends NaviActivity {
             CheckBox mCheckBox = (CheckBox) convertView.findViewById(R.id.checkBox1);
             final ImageView imageView = (ImageView) convertView.findViewById(R.id.imageView);
 
-//            imageView.setImageBitmap(SecondActivity.this.decodeSampledBitmapFromPath(imageUrls.get(position), 100, 100));
+//            imageView.setImageBitmap(ImageLoader.decodeSampledBitmapFromPath(imageUrls.get(position), 100, 100));
             mImageLoader.loadBitmap(imageUrls.get(position), imageView);
 
 //            imageLoader.displayImage("file://"+imageUrls.get(position), imageView, options, new SimpleImageLoadingListener() {
@@ -225,6 +241,8 @@ public class SecondActivity extends NaviActivity {
             if(gridView != null){
                 System.out.println("gridView is not null");
             }
+
+            btn_select_photos = (Button)v.findViewById(R.id.btn_select_photos);
 
 
             return getFragView();
