@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="toolbar_background">#2196F3</color>
+    <color name="toolbar_background">#FFFFFF</color>
     <color name="transparent">#00000000</color>
     <color name="navdrawer_fading_background">#BF000000</color>
     <color name="background">#FFFFFFFF</color>
     <color name="half_black">#FFFFFFFF</color>
-    <color name="transparent_white">#beffffff</color>
+    <color name="transparent_white">#a0ffffff</color>
     <color name="white">#FFFFFF</color>
     <color name="white_pressed">#f1f1f1</color>
     <color name="pink">#e91e63</color>
     <color name="pink_pressed">#ec407a</color>
     <color name="blue_semi_transparent">#805677fc</color>
     <color name="blue_semi_transparent_pressed">#80738ffe</color>
+
 
     <color name="primary">#00bcd4</color>
     <color name="primary_transparent">#8f00bcd4</color>
@@ -20,18 +21,19 @@
     <color name="accent_transparent">#8fcddc39</color>
     <color name="accent_dark">#afb42b</color>
     <color name="accent_dark_transparent">#8fafb42b</color>
-    <color name="dark_transparent">#8f000000</color>
+    <color name="dark_transparent">#8c000000</color>
     <color name="dark">#212121</color>
     <color name="bg_window">#f0f0f0</color>
     <color name="bg_primary">#fafafa</color>
     <color name="bg_primary_inverse">#424242</color>
+    <color name="bg_primary_inverse_transparetn">#643b3b3b</color>
     <color name="bg_secondary">#e4e4e4</color>
     <color name="bg_actionbar">@color/primary</color>
     <color name="bg_brand">@color/primary</color>
 
-    <color name="text_primary">#212121</color>
+    <color name="text_primary">#c9212121</color>
     <color name="text_primary_inverse">#ffffff</color>
-    <color name="text_secondary">#757575</color>
+    <color name="text_secondary">#ff5d5d5d</color>
     <color name="text_secondary_inverse">#8ef0f0f0</color>
     <color name="text_weak">#9a9a9a</color>
     <color name="text_hint">#42000000</color>

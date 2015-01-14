@@ -1,34 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/drawer_view"
     android:layout_width="@dimen/navdrawer_width"
-    android:layout_height="fill_parent"
-    android:layout_gravity="start"
+    android:layout_height="match_parent"
     android:clickable="true"
-    android:background="#FFFFFF"
+    android:layout_gravity="left|start"
+    android:background="@color/white"
     android:orientation="vertical">
+
     <FrameLayout
         android:id="@+id/chosen_account_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/navdrawer_chosen_account_height">
+        android:layout_height="0dp"
+        android:layout_weight="0.25">
+
         <ImageView android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@drawable/default_cover"
+            android:src="@drawable/beach"
             android:id="@+id/profile_cover_image" />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/keyline_1"
             android:paddingRight="@dimen/keyline_1"
             android:paddingTop="@dimen/keyline_1"
-            android:id="@+id/chosen_account_content_view">
+            android:id="@+id/chosen_account_content_view"
+            android:background="@color/dark_transparent">
 
             <ImageView
                 android:id="@+id/profile_image"
-                android:layout_width="@dimen/navdrawer_profile_image_size"
-                android:layout_height="@dimen/navdrawer_profile_image_size"
-                android:src="@drawable/person_image_empty"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:src="@drawable/ic_launcher"
                 android:scaleType="centerCrop"/>
 
             <ImageView
@@ -52,8 +56,9 @@
                 android:layout_toLeftOf="@id/expand_account_box_indicator"
                 android:layout_alignParentBottom="true"
                 android:paddingBottom="16dp"
-                android:textSize="@dimen/text_size_medium"
-                android:textColor="@android:color/black"
+                android:textSize="13sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="@string/global_font_fmaily"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:ellipsize="end"
@@ -66,8 +71,8 @@
                 android:layout_above="@id/profile_email_text"
                 android:layout_alignLeft="@id/profile_image"
                 android:layout_toLeftOf="@id/expand_account_box_indicator"
-                android:textSize="@dimen/text_size_large"
-                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                android:textColor="@android:color/white"
                 android:maxLines="1"
                 android:singleLine="true"
                 android:ellipsize="end"
@@ -75,4 +80,96 @@
 
         </RelativeLayout>
     </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.75"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:id="@+id/navi_favorite"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_favorite"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Favorite"
+                android:layout_gravity="center"
+                android:textSize="17sp"
+                android:fontFamily="@string/global_font_fmaily"
+                android:layout_marginLeft="32dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:id="@+id/navi_profile"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_person"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profile"
+                android:layout_gravity="center"
+                android:textSize="17sp"
+                android:fontFamily="@string/global_font_fmaily"
+                android:layout_marginLeft="32dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:id="@+id/navi_feedback"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_chat"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Feedback"
+                android:textSize="17sp"
+                android:layout_gravity="center"
+                android:fontFamily="@string/global_font_fmaily"
+                android:layout_marginLeft="32dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:padding="12dp"
+            android:id="@+id/navi_logout"
+            android:clickable="true">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_person_outline"
+                android:layout_marginLeft="16dp"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Logout"
+                android:textSize="17sp"
+                android:layout_gravity="center"
+                android:fontFamily="@string/global_font_fmaily"
+                android:layout_marginLeft="32dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
 </LinearLayout>

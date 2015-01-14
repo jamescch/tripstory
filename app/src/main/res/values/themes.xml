@@ -4,32 +4,54 @@
     <!-- We cannot change original toolbar style with the theme xxx.ActionBar -->
     <!-- So here we use NoActionBar and inflate our own style toolbar style -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:actionBarWidgetTheme">@style/AppTheme.ToolbarStyle</item>
+        <!--<item name="android:actionBarWidgetTheme">@style/AppTheme.ToolbarStyle</item>-->
         <item name="android:windowContentOverlay">@null</item>
-        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <!--<item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>-->
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
     </style>
 
-    <style name="AppTheme.ToolbarStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?actionBarSize</item>
-        <item name="android:minHeight">?actionBarSize</item>
-        <item name="android:background">@color/primary</item>
-        <item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
-        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/text_secondary</item>
     </style>
+
+
+    <!--<style name="AppTheme.ToolbarStyle">-->
+        <!--<item name="android:actionBarTabTextStyle">@color/primary_dark</item>-->
+        <!--<item name="android:layout_width">match_parent</item>-->
+        <!--<item name="android:layout_height">?actionBarSize</item>-->
+        <!--<item name="android:minHeight">?actionBarSize</item>-->
+        <!--<item name="android:background">@color/primary</item>-->
+        <!--<item name="theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>-->
+        <!--<item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>-->
+        <!--<item name="android:textColorPrimary">@color/primary_dark</item>-->
+    <!--</style>-->
 
     <style name="Theme.Transparent" parent="AppTheme">
-        <item name="android:actionBarWidgetTheme">@style/Theme.Transparent.ToolbarStyle</item>
+        <!--<item name="android:actionBarWidgetTheme">@style/Theme.Transparent.ToolbarStyle</item>-->
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowBackground">@color/transparent_white</item>
+        <item name="android:windowBackground">@color/transparent</item>
         <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.Transparent.ToolbarStyle" parent="AppTheme.ToolbarStyle">
-        <item name="android:background">@color/transparent_white</item>
+    <style name="Theme.Transparent.Dark" parent="Theme.Transparent">
+        <item name="android:windowBackground">@color/dark_transparent</item>
+    </style>
+
+    <!--<style name="Theme.Transparent.ToolbarStyle" parent="AppTheme.ToolbarStyle">-->
+        <!--<item name="android:background">@color/transparent_white</item>-->
+    <!--</style>-->
+
+    <style name="RoboTheme" parent="@android:style/TextAppearance.DeviceDefault.Medium">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
 
 </resources>

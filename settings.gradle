@@ -1,1 +1,3 @@
-include ':app', ':libraries:android-floating-action-button', ':libraries:material-dialogs', ':libraries:android-floating-action-button'
+include ':app', ':libraries:android-floating-action-button', ':libraries:material-dialogs', ':libraries:cardslib'
+//, ':libraries:StickyListHeaders'
+//, ':nineoldandroids-2.4.0'

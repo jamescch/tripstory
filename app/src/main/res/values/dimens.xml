@@ -9,4 +9,11 @@
     <dimen name="text_size_medium">14sp</dimen>
     <dimen name="text_size_large">18sp</dimen>
     <dimen name="navdrawer_profile_image_size">40dp</dimen>
+
+    <dimen name="customTitle">14sp</dimen>
+    <dimen name="customEntry">18sp</dimen>
+    <dimen name="sample_button_spacing">2dp</dimen>
+
+    <dimen name="custom_profile_image">50dp</dimen>
+    <dimen name="custom_profile_padding">2dp</dimen>
 </resources>

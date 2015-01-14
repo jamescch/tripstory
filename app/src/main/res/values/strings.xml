@@ -7,6 +7,308 @@
     <string name="drawer_close">Drawer Close</string>
     <string name="name">Ta-Ching Chen</string>
     <string name="email">life1347@gmail.com</string>
-    <integer name="google_play_services_version">6171000</integer>
+    <string name="avatar">avatar</string>
+    <integer name="google_play_services_version">6587000</integer>
     <string name="API_KEY">AIzaSyC9Z-J8bdaD04BAOemwxgK-znPSn8CAy3E</string>
+    <string name="available_account_char">_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="available_email_char">_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.@</string>
+    <string name="usf">usf.ini</string>
+
+    <string name="edit_profile">Edit Profile</string>
+    <string name="done">DONE</string>
+    <string name="cancel">CANCEL</string>
+
+    <string name="row_number">This is row number %d</string>
+    <string name="header">Header %d</string>
+    <string name="itemdeleted">Item deleted</string>
+    <string name="taptoundo">Tap to undo</string>
+    <string name="global_font_fmaily">sans-serif-light</string>
+
+    <string name="test_text">“You have to be careful,” the Hotel Beaufort’s receptionist, Rita Wyorek, warned me. “It comes in as fast as a person walking quickly.”
+She said this with the sly confidence of someone who had perhaps raced the water just to see if she could. Large tidal variations occur up and down the English Channel, and their effects tend to be exaggerated by the shape of the bay. Saint-Malo’s location at the head of an estuary makes the phenomenon particularly dramatic because its bay fills with water from both the Atlantic and the Rance river.
+While the town is hardly a secret, it’s somewhat overshadowed by its more famous sibling, Mont Saint-Michel, which attracts more than three and a half million visitors a year, compared with the little more than two million who make it to Saint-Malo. Located 55km west of Mont Saint-Michel and half an hour off the main highway, Saint-Malo tends to attract a more local crowd – a mix of French and British tourists who come for the beach and history, but end up captivated by the ocean’s wild vanishing act.
+Surprisingly, the tides aren’t typically the first thing You have to be careful,” the Hotel Beaufort’s receptionist, Rita Wyorek, warned me. “It comes in as fast as a person walking quickly.”
+She said this with the sly confidence of someone who had perhaps raced the water just to see if she could. Large tidal variations occur up and down the English Channel, and their effects tend to be exaggerated by the shape of the bay. Saint-Malo’s location at the head of an estuary makes the phenomenon particularly dramatic because its bay fills with water from both the Atlantic and the Rance river.
+While the town is hardly a secret, it’s somewhat overshadowed by its more famous sibling, Mont Saint-Michel, which attracts more than three and a half million visitors a year, compared with the little more than two million who make it to Saint-Malo. Located 55km west of Mont Saint-Michel and half an hour off the main highway, Saint-Malo tends to attract a more local crowd – a mix of French and British tourists who come for the beach and history, but end up captivated by the ocean’s wild vanishing act.
+Surprisingly, the tides aren’t typically the first thing You have to be careful,” the Hotel Beaufort’s receptionist, Rita Wyorek, warned me. “It comes in as fast as a person walking quickly.”
+She said this with the sly confidence of someone who had perhaps raced the water just to see if she could. Large tidal variations occur up and down the English Channel, and their effects tend to be exaggerated by the shape of the bay. Saint-Malo’s location at the head of an estuary makes the phenomenon particularly dramatic because its bay fills with water from both the Atlantic and the Rance river.
+While the town is hardly a secret, it’s somewhat overshadowed by its more famous sibling, Mont Saint-Michel, which attracts more than three and a half million visitors a year, compared with the little more than two million who make it to Saint-Malo. Located 55km west of Mont Saint-Michel and half an hour off the main highway, Saint-Malo tends to attract a more local crowd – a mix of French and British tourists who come for the beach and history, but end up captivated by the ocean’s wild vanishing act.
+Surprisingly, the tides aren’t typically the first thing you hear about Saint-Malo. In fact, I’d come in search of a beach getaway and a peek at a medieval walled city. My hosts in France had assured me that the town was a lovely place for a dip in the ocean. They hadn’t mentioned that taking that dip is possible only during prescribed hours and after a 15- to 20-minute walk across damp sand.</string>
+
+    <string name="basic">Basic</string>
+    <string name="stacked">Stacked Buttons</string>
+    <string name="neutral">Neutral Button</string>
+    <string name="callbacks">Callbacks</string>
+    <string name="list">Basic List</string>
+    <string name="singleChoice">Single Choice</string>
+    <string name="multiChoice">Multi Choice</string>
+    <string name="customView">Custom View</string>
+    <string name="themed">Themed</string>
+    <string name="signalStrength">Signal strength</string>
+    <string name="excellent">Excellent</string>
+    <string name="security">Security</string>
+    <string name="securityType">802.1x EAP</string>
+    <string name="password">Password</string>
+    <string name="showPassword">Show password</string>
+    <string name="useGoogleLocationServices">Use Google\'s Location Services?</string>
+    <string name="useGoogleLocationServicesPrompt">Let Google help apps determine location. This means sending anonymous location data to Google, even when no apps are running.</string>
+    <string name="socialNetworks">Social Networks</string>
+    <string name="choose">Choose</string>
+    <string name="speedBoost">Turn on speed boost now!</string>
+    <string name="noThanks">No thanks</string>
+    <string name="googleWifi">Google Wifi</string>
+    <string name="connect">Connect</string>
+
+    <string-array name="country">
+        <item>Afghanistan</item>
+        <item>Albania</item>
+        <item>Algeria</item>
+        <item>American Samoa</item>
+        <item>Andorra</item>
+        <item>Angola</item>
+        <item>Anguilla</item>
+        <item>Antigua and Barbuda</item>
+        <item>Argentina</item>
+        <item>Armenia</item>
+        <item>Aruba</item>
+        <item>Australia</item>
+        <item>Austria</item>
+        <item>Azerbaijan</item>
+        <item>Bahamas, The</item>
+        <item>Bahrain</item>
+        <item>Bangladesh</item>
+        <item>Barbados</item>
+        <item>Belarus</item>
+        <item>Belgium</item>
+        <item>Belize</item>
+        <item>Benin</item>
+        <item>Bermuda</item>
+        <item>Bhutan</item>
+        <item>Bolivia</item>
+        <item>Bosnia and Herzegovina</item>
+        <item>Botswana</item>
+        <item>Brazil</item>
+        <item>British Virgin Is.</item>
+        <item>Brunei</item>
+        <item>Bulgaria</item>
+        <item>Burkina Faso</item>
+        <item>Burma</item>
+        <item>Burundi</item>
+        <item>Cambodia</item>
+        <item>Cameroon</item>
+        <item>Canada</item>
+        <item>Cape Verde</item>
+        <item>Cayman Islands</item>
+        <item>Central African Rep.</item>
+        <item>Chad</item>
+        <item>Chile</item>
+        <item>China</item>
+        <item>Colombia</item>
+        <item>Comoros</item>
+        <item>Congo, Dem. Rep.</item>
+        <item>Congo, Repub. of the</item>
+        <item>Cook Islands</item>
+        <item>Costa Rica</item>
+        <item>Cote dIvoire</item>
+        <item>Croatia</item>
+        <item>Cuba</item>
+        <item>Cyprus</item>
+        <item>Czech Republic</item>
+        <item>Denmark</item>
+        <item>Djibouti</item>
+        <item>Dominica</item>
+        <item>Dominican Republic</item>
+        <item>East Timor</item>
+        <item>Ecuador</item>
+        <item>Egypt</item>
+        <item>El Salvador</item>
+        <item>Equatorial Guinea</item>
+        <item>Eritrea</item>
+        <item>Estonia</item>
+        <item>Ethiopia</item>
+        <item>Faroe Islands</item>
+        <item>Fiji</item>
+        <item>Finland</item>
+        <item>France</item>
+        <item>French Guiana</item>
+        <item>French Polynesia</item>
+        <item>Gabon</item>
+        <item>Gambia, The</item>
+        <item>Gaza Strip</item>
+        <item>Georgia</item>
+        <item>Germany</item>
+        <item>Ghana</item>
+        <item>Gibraltar</item>
+        <item>Greece</item>
+        <item>Greenland</item>
+        <item>Grenada</item>
+        <item>Guadeloupe</item>
+        <item>Guam</item>
+        <item>Guatemala</item>
+        <item>Guernsey</item>
+        <item>Guinea</item>
+        <item>Guinea-Bissau</item>
+        <item>Guyana</item>
+        <item>Haiti</item>
+        <item>Honduras</item>
+        <item>Hong Kong</item>
+        <item>Hungary</item>
+        <item>Iceland</item>
+        <item>India</item>
+        <item>Indonesia</item>
+        <item>Iran</item>
+        <item>Iraq</item>
+        <item>Ireland</item>
+        <item>Isle of Man</item>
+        <item>Israel</item>
+        <item>Italy</item>
+        <item>Jamaica</item>
+        <item>Japan</item>
+        <item>Jersey</item>
+        <item>Jordan</item>
+        <item>Kazakhstan</item>
+        <item>Kenya</item>
+        <item>Kiribati</item>
+        <item>Korea, North</item>
+        <item>Korea, South</item>
+        <item>Kuwait</item>
+        <item>Kyrgyzstan</item>
+        <item>Laos</item>
+        <item>Latvia</item>
+        <item>Lebanon</item>
+        <item>Lesotho</item>
+        <item>Liberia</item>
+        <item>Libya</item>
+        <item>Liechtenstein</item>
+        <item>Lithuania</item>
+        <item>Luxembourg</item>
+        <item>Macau</item>
+        <item>Macedonia</item>
+        <item>Madagascar</item>
+        <item>Malawi</item>
+        <item>Malaysia</item>
+        <item>Maldives</item>
+        <item>Mali</item>
+        <item>Malta</item>
+        <item>Marshall Islands</item>
+        <item>Martinique</item>
+        <item>Mauritania</item>
+        <item>Mauritius</item>
+        <item>Mayotte</item>
+        <item>Mexico</item>
+        <item>Micronesia, Fed. St.</item>
+        <item>Moldova</item>
+        <item>Monaco</item>
+        <item>Mongolia</item>
+        <item>Montserrat</item>
+        <item>Morocco</item>
+        <item>Mozambique</item>
+        <item>Namibia</item>
+        <item>Nauru</item>
+        <item>Nepal</item>
+        <item>Netherlands</item>
+        <item>Netherlands Antilles</item>
+        <item>New Caledonia</item>
+        <item>New Zealand</item>
+        <item>Nicaragua</item>
+        <item>Niger</item>
+        <item>Nigeria</item>
+        <item>N. Mariana Islands</item>
+        <item>Norway</item>
+        <item>Oman</item>
+        <item>Pakistan</item>
+        <item>Palau</item>
+        <item>Panama</item>
+        <item>Papua New Guinea</item>
+        <item>Paraguay</item>
+        <item>Peru</item>
+        <item>Philippines</item>
+        <item>Poland</item>
+        <item>Portugal</item>
+        <item>Puerto Rico</item>
+        <item>Qatar</item>
+        <item>Reunion</item>
+        <item>Romania</item>
+        <item>Russia</item>
+        <item>Rwanda</item>
+        <item>Saint Helena</item>
+        <item>Saint Kitts and Nevis</item>
+        <item>Saint Lucia</item>
+        <item>St Pierre and Miquelon</item>
+        <item>Saint Vincent and the Grenadines</item>
+        <item>Samoa</item>
+        <item>San Marino</item>
+        <item>Sao Tome and Principe</item>
+        <item>Saudi Arabia</item>
+        <item>Senegal</item>
+        <item>Serbia</item>
+        <item>Seychelles</item>
+        <item>Sierra Leone</item>
+        <item>Singapore</item>
+        <item>Slovakia</item>
+        <item>Slovenia</item>
+        <item>Solomon Islands</item>
+        <item>Somalia</item>
+        <item>South Africa</item>
+        <item>Spain</item>
+        <item>Sri Lanka</item>
+        <item>Sudan</item>
+        <item>Suriname</item>
+        <item>Swaziland</item>
+        <item>Sweden</item>
+        <item>Switzerland</item>
+        <item>Syria</item>
+        <item>Taiwan</item>
+        <item>Tajikistan</item>
+        <item>Tanzania</item>
+        <item>Thailand</item>
+        <item>Togo</item>
+        <item>Tonga</item>
+        <item>Trinidad and Tobago</item>
+        <item>Tunisia</item>
+        <item>Turkey</item>
+        <item>Turkmenistan</item>
+        <item>Turks and Caicos Is</item>
+        <item>Tuvalu</item>
+        <item>Uganda</item>
+        <item>Ukraine</item>
+        <item>United Arab Emirates</item>
+        <item>United Kingdom</item>
+        <item>United States</item>
+        <item>Uruguay</item>
+        <item>Uzbekistan</item>
+        <item>Vanuatu</item>
+        <item>Venezuela</item>
+        <item>Vietnam</item>
+        <item>Virgin Islands</item>
+        <item>Wallis and Futuna</item>
+        <item>West Bank</item>
+        <item>Western Sahara</item>
+        <item>Yemen</item>
+        <item>Zambia</item>
+        <item>Zimbabwe</item>
+    </string-array>
+
+
+
+
+
+
+    <string name="fixedAspectRatio">fixedAspectRatio =</string>
+    <string name="aspectRatioX">\u002010</string>
+    <string name="aspectRatioXHeader">aspectRatioX =</string>
+    <string name="aspectRatioY">\u002010</string>
+    <string name="aspectRatioYHeader">aspectRatioY =</string>
+    <string name="showGuidelines">showGuidelines = </string>
+    <string name="crop">Crop</string>
+    <string name="rotate">Rotate</string>
+    <string name="croppedImageDesc">The cropped image.</string>
+
+    <string-array name="showGuidelinesArray">
+        <item>Off</item>
+        <item>On Touch</item>
+        <item>On</item>
+    </string-array>
+
+
 </resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:gravity="center">
+
+    <com.triwalks.Common.SquareImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:padding="1dp"/>
+
+    <LinearLayout
+        android:id="@+id/img_select_check"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@id/imageView"
+        android:layout_alignBottom="@id/imageView"
+        android:layout_alignLeft="@id/imageView"
+        android:layout_alignStart="@id/imageView"
+        android:layout_alignEnd="@id/imageView"
+        android:layout_alignRight="@id/imageView"
+        android:background="@drawable/ic_flight_cover"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+    </LinearLayout>
+</RelativeLayout>
