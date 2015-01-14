@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Venus.iml" filepath="$PROJECT_DIR$/Venus.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/android-floating-action-button/android-floating-action-button.iml" filepath="$PROJECT_DIR$/libraries/android-floating-action-button/android-floating-action-button.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraries/cardslib/cardslib.iml" filepath="$PROJECT_DIR$/libraries/cardslib/cardslib.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraries/material-dialogs/material-dialogs.iml" filepath="$PROJECT_DIR$/libraries/material-dialogs/material-dialogs.iml" />
     </modules>
   </component>

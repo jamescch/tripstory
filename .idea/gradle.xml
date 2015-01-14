@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/libraries" />
             <option value="$PROJECT_DIR$/libraries/android-floating-action-button" />
+            <option value="$PROJECT_DIR$/libraries/cardslib" />
             <option value="$PROJECT_DIR$/libraries/material-dialogs" />
           </set>
         </option>
