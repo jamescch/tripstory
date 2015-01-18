@@ -60,7 +60,7 @@ public class PhotoPushService extends IntentService {
         // Broadcasts the Intent to receivers in this app.
         LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
 
-
+//        stopSelf();
     }
 
     public void uploadTripLinePhoto(ArrayList<String> imageUrls, final String triplineID){
@@ -87,6 +87,7 @@ public class PhotoPushService extends IntentService {
                         }
                     });
         }
+        stopSelf();
     }
 
     public void createTripLine(String userID ,String sessionID, double[] geotag) {

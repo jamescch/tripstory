@@ -12,10 +12,12 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.triwalks.Common.CommonFunction;
 import com.triwalks.Common.TripLineInfo;
@@ -112,13 +114,21 @@ public class Activity_Memories extends Activity_Navi {
 
         public void addMarker(Bitmap bitmap, double x, double y){
             if(bitmap != null) {
-                System.out.println("add marker Bitmap: " + bitmap + " x: " + x + " y: " + y);
-                getMap().addMarker(new MarkerOptions()
-                        .position(new LatLng(y, x))//former is horizontal
-                        .draggable(true)
-                        .icon(BitmapDescriptorFactory.fromBitmap(
-                                bitmap
-                        )));
+//                System.out.println("add marker Bitmap: " + bitmap + " x: " + x + " y: " + y);
+                View markerView =  ((LayoutInflater) getFragView().getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.custom_marker_layout, null);
+                Marker marker = getMap().addMarker(
+                        new MarkerOptions()
+                                .position(new LatLng(y, x))//former is horizontal
+                                .draggable(true)
+                                .icon(BitmapDescriptorFactory.fromBitmap(
+                                        Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_4444)
+                                ))
+                );
+//                marker.setVisible(false);
+//                marker.setSnippet(path+"-"+follower);
+//                loadBitmap(path, marker, markerView, R.id.photo);
+                ((ImageView)markerView.findViewById(R.id.photo)).setImageBitmap(bitmap);
+                marker.setIcon(BitmapDescriptorFactory.fromBitmap(createDrawableFromView(getFragView().getContext(), markerView)));
             }
 
         }

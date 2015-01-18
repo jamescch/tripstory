@@ -33,7 +33,6 @@ public class TripLineInitService extends IntentService {
         String sessionID = bundle.getString("sessionID");
         getTripIDs(userID, sessionID);
 
-
     }
 
     private void getTripIDs(String userID ,String sessionID) {
@@ -62,5 +61,6 @@ public class TripLineInitService extends IntentService {
                 TripLineInfo.getInstance().addTripLine(triplineID, tripline);
             }
         }
+        stopSelf();
     }
 }

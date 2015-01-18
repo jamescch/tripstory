@@ -77,8 +77,6 @@ public class TripLinePullService extends IntentService {
             , tripLineID, test, tripLineDataReceiver);
 
 
-
-
     }
 
     public Parcelable[] toParcelableArray(){
@@ -135,6 +133,7 @@ public class TripLinePullService extends IntentService {
         localIntent.putExtras(bundle);
         // Broadcasts the Intent to receivers in this app.
         LocalBroadcastManager.getInstance(this).sendBroadcast(localIntent);
+        stopSelf();
     }
 
     public class TripLineDataReceiver implements Callback<TripLineData> {
